@@ -9,6 +9,8 @@ import { HomePage } from '../pages/home/home';
 import { SlidesPageModule } from '../pages/slides/slides.module';
 import { LoginPageModule } from '../pages/login/login.module';
 import { RegisterPageModule } from '../pages/register/register.module';
+import { FavoritosPageModule } from '../pages/favoritos/favoritos.module';
+import { SobrePageModule } from '../pages/sobre/sobre.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { RegisterPageModule } from '../pages/register/register.module';
     IonicModule.forRoot(MyApp),
     SlidesPageModule,
     LoginPageModule,
-    RegisterPageModule
+    RegisterPageModule,
+    FavoritosPageModule,
+    SobrePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

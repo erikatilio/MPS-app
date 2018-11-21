@@ -1,13 +1,30 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Receitas
-    </ion-title>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pagina Principal</ion-title>
   </ion-navbar>
 </ion-header>
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="goToFavoritosPage()">
+        Favoritos
+      </button>
+      <button ion-item (click)="goToSobrePage()">
+        Sobre
+      </button>
+      <button ion-item (click)="goToLoginPage()">
+        Sair
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
 
-<ion-content padding>
-  <p>
-    Pagina principal onde ficaram as receitas em geral
-  </p>
-</ion-content>
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
