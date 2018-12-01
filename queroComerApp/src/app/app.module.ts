@@ -11,6 +11,7 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { RegisterPageModule } from '../pages/register/register.module';
 import { FavoritosPageModule } from '../pages/favoritos/favoritos.module';
 import { SobrePageModule } from '../pages/sobre/sobre.module';
+import { ReceitaPageModule } from '../pages/receita/receita.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SobrePageModule } from '../pages/sobre/sobre.module';
     LoginPageModule,
     RegisterPageModule,
     FavoritosPageModule,
-    SobrePageModule
+    SobrePageModule,
+    ReceitaPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { FavoritosPage } from '../favoritos/favoritos';
 import { SobrePage } from '../sobre/sobre';
 import { LoginPage } from '../login/login';
+import { ReceitaPage } from '../receita/receita';
 
 @Component({
   selector: 'page-home',
@@ -30,7 +31,7 @@ export class HomePage {
       }
     ]
   }
-
+  
   goToFavoritosPage() {
     this.navCtrl.push(FavoritosPage);
   }
@@ -41,6 +42,10 @@ export class HomePage {
 
   goToLoginPage() {
     this.navCtrl.setRoot(LoginPage);
+  }
+
+  goToReceitaPage(){
+    this.navCtrl.push(ReceitaPage);
   }
 
 }

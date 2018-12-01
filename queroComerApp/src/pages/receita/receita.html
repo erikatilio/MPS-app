@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{titulo}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <img src="https://4.bp.blogspot.com/-Deog3V095uo/Vu19VXyGwFI/AAAAAAAAAm8/TOKVhPqgwmI1oBFNTV-Cxdgnzu9fpn3Mg/s1600/sem-foto.gif">
+
+    <ion-card-content>
+      <div>
+        Descrição da receita em geral, ingredientes e preparo.
+      </div>
+    </ion-card-content>
+    <ion-item>
+    <ion-row>
+      <ion-col col-50>
+        <button ion-button icon-start clear medium>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div (tap)="curtir()">{{curtida}} LIKE</div>
+        </button>
+      </ion-col>
+      <ion-col col-50>
+        <button ion-button icon-start clear medium>
+          <ion-icon name="thumbs-down"></ion-icon>
+          <div (tap)="descurtir()">{{descurtida}} DESLIKE</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  </ion-card>
+</ion-content>
