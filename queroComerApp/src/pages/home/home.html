@@ -3,8 +3,25 @@
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Pagina Principal</ion-title>
+    <ion-title>Receitas</ion-title>
   </ion-navbar>
+  <ion-list>
+    <ion-item-sliding *ngFor="let receita of listaReceitas">
+      <ion-item>
+        <ion-card>
+          <img src="{{receita.imagem}}" />
+          <ion-card-content>
+            <ion-card-title >
+              {{receita.nome}}
+            </ion-card-title>
+            <div>
+             {{receita.descricao}}
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
 </ion-header>
 <ion-menu [content]="content">
   <ion-header>
