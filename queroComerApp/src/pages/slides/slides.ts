@@ -13,12 +13,13 @@ export class SlidesPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SlidesPage');
+  //função que carrega a pagina de login
+  goToHomePage() {
+    this.navCtrl.setRoot(LoginPage);
   }
 
-  goToHomePage(){
-    this.navCtrl.setRoot(LoginPage);
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SlidesPage');
   }
 
 }

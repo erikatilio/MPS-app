@@ -23,7 +23,7 @@ export class ReceitaPage {
     this.like = false;
     this.deslike = false;
   }
-
+//funções de avaliação positiva
   curtir(){
     if(this.avaliado == false){
       this.curtida++;
@@ -41,7 +41,7 @@ export class ReceitaPage {
       this.deslike = false;
     }
   }
-
+//funções de avaliação negativa
   descurtir(){
     if(this.avaliado == false){
       this.descurtida++;

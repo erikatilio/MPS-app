@@ -33,12 +33,12 @@ export class RegisterPage {
       buttons: ['Fechar']
     });
     al.present();
-}
+  }
 
   async register(user: User) {
 
     // Valida se foi informado email e password
-    if(user.email == "" || user.password == ""){
+    if (user.email == "" || user.password == "") {
       this.msgErro('Erro', 'É necessário informar o email e senha');
     } else {
       try {

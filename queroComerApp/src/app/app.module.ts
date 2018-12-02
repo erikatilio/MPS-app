@@ -20,6 +20,7 @@ import { ReceitaPageModule } from '../pages/receita/receita.module';
 // Configurações do FIREBASE
 import { config } from '../config';
 import { AuthProvider } from '../provider/auth/auth';
+import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AuthProvider } from '../provider/auth/auth';
     FavoritosPageModule,
     SobrePageModule,
     ReceitaPageModule,
+    CadastroPageModule,
     // Configurações do Firebase
     AngularFireModule.initializeApp(config),
     // Configuração do serviço de autenticação do firebase

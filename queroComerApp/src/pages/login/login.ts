@@ -32,17 +32,17 @@ export class LoginPage {
       buttons: ['Fechar']
     });
     al.present();
-}
+  }
   // Método usado para login do usuário
   // Recebe como parametro um tipo user e tenta fazer o login
   async login(user: User) {
     // Valida se foi informado email e password
-    if(user.email == "" || user.password == ""){
+    if (user.email == "" || user.password == "") {
       this.msgErro('Erro', 'É necessário informar o email e senha');
     } else {
       try {
         // Chama o método para fazer login
-        const result = await this.auth.login(user) ;
+        const result = await this.auth.login(user);
         if (result) {
           // Se ocorrer tudo bem redireciona para a página tabs
           this.navCtrl.setRoot(HomePage);
@@ -73,7 +73,7 @@ export class LoginPage {
     }
   }*/
 
-  goToRegisterPage(){
+  goToRegisterPage() {
     this.navCtrl.push(RegisterPage);
   }
 }

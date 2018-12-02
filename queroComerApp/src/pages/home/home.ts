@@ -4,6 +4,7 @@ import { FavoritosPage } from '../favoritos/favoritos';
 import { SobrePage } from '../sobre/sobre';
 import { LoginPage } from '../login/login';
 import { ReceitaPage } from '../receita/receita';
+import { CadastroPage } from '../cadastro/cadastro';
 
 @Component({
   selector: 'page-home',
@@ -31,21 +32,25 @@ export class HomePage {
       }
     ]
   }
-
+  //função que carrega a pagina favoritos
   goToFavoritosPage() {
     this.navCtrl.push(FavoritosPage);
   }
-
+  //função que carrega a pagina sobre
   goToSobrePage() {
     this.navCtrl.push(SobrePage);
   }
-
+  //função que carrega a pagina login
   goToLoginPage() {
     this.navCtrl.setRoot(LoginPage);
   }
-
-  goToReceitaPage(){
+  //função que carrega a pagina receitas
+  goToReceitaPage() {
     this.navCtrl.push(ReceitaPage);
+  }
+  //função que carrega a pagina cadastro
+  goToCadastroReceitaPage() {
+    this.navCtrl.push(CadastroPage);
   }
 
 }
