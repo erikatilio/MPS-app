@@ -19,13 +19,13 @@
     <ion-item>
     <ion-row>
       <ion-col col-50>
-        <button ion-button icon-start clear medium>
+        <button ion-button (click)="curtir()">
           <ion-icon name="thumbs-up"></ion-icon>
           <div (tap)="curtir()">{{curtida}} LIKE</div>
         </button>
       </ion-col>
       <ion-col col-50>
-        <button ion-button icon-start clear medium>
+        <button ion-button (click)="descurtir()">
           <ion-icon name="thumbs-down"></ion-icon>
           <div (tap)="descurtir()">{{descurtida}} DESLIKE</div>
         </button>
