@@ -5,6 +5,9 @@
     </button>
     <ion-title>Receitas</ion-title>
   </ion-navbar>
+</ion-header>
+
+<ion-content padding>
   <ion-list>
     <ion-item-sliding *ngFor="let receita of listaReceitas">
       <ion-item>
@@ -22,7 +25,8 @@
       </ion-item>
     </ion-item-sliding>
   </ion-list>
-</ion-header>
+</ion-content>
+
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
