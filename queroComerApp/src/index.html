@@ -15,6 +15,21 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
+  <!-- script do firebase-->
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBhhebvljg6fq-kCUS1a2xCLtf-HCQepPM",
+        authDomain: "cadereceita.firebaseapp.com",
+        databaseURL: "https://cadereceita.firebaseio.com",
+        projectId: "cadereceita",
+        storageBucket: "cadereceita.appspot.com",
+        messagingSenderId: "30954215250"
+      };
+      firebase.initializeApp(config);
+  </script>
+
   <!-- cordova.js required for cordova apps (remove if not needed) -->
   <script src="cordova.js"></script>
 

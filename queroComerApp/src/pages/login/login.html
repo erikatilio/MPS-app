@@ -9,17 +9,17 @@
   <ion-list>
 
     <ion-item>
-      <ion-label floating>Username</ion-label>
-      <ion-input type="text" [(ngModel)]="username"></ion-input>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="user.email"></ion-input>
     </ion-item>
-  
+
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
     </ion-item>
-  
+
   </ion-list>
-  <button ion-button full (click)="login()">Log in</button>
+  <button ion-button full (click)="login(user)">Log in</button>
   <button ion-button full color="light" (click)="goToRegisterPage()">Register</button>
 
 </ion-content>
