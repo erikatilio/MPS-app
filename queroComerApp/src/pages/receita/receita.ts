@@ -36,6 +36,7 @@ export class ReceitaPage {
     }
     else if (this.avaliado == true && this.like == false) {
       this.curtida++;
+      this.descurtida--;
       this.like = true;
       this.deslike = false;
     }
@@ -53,6 +54,7 @@ export class ReceitaPage {
     }
     else if (this.avaliado == true && this.deslike == false) {
       this.descurtida++;
+      this.curtida--;
       this.deslike = true;
       this.like = false;
     }
