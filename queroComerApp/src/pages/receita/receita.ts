@@ -8,9 +8,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'receita.html',
 })
 export class ReceitaPage {
-  public titulo:any;
-  public curtida:any;
-  public descurtida:any;
+  public titulo:string;
+  public curtida:number;
+  public descurtida:number;
   public avaliado:boolean;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.titulo = "Titulo da Receita";
