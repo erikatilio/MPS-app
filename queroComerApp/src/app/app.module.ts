@@ -16,11 +16,13 @@ import { RegisterPageModule } from '../pages/register/register.module';
 import { FavoritosPageModule } from '../pages/favoritos/favoritos.module';
 import { SobrePageModule } from '../pages/sobre/sobre.module';
 import { ReceitaPageModule } from '../pages/receita/receita.module';
+import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
 
 // Configurações do FIREBASE
 import { config } from '../config';
-import { AuthProvider } from '../provider/auth/auth';
-import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
+import { AuthProvider } from '../providers/auth/auth';
+import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
     CadastroPageModule,
     // Configurações do Firebase
     AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule ,
     // Configuração do serviço de autenticação do firebase
     AngularFireAuthModule,
   ],
@@ -51,7 +54,8 @@ import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    FirebaseServiceProvider
   ]
 })
 export class AppModule {}
