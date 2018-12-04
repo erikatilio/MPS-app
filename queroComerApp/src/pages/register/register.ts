@@ -7,7 +7,7 @@ import { HomePage } from '../home/home';
 //importação do modelo de usuario
 import { User } from '../../model/user';
 //autenticação
-import { AuthProvider } from '../../provider/auth/auth';
+import { AuthProvider } from '../../providers/auth/auth';
 
 
 @IonicPage()
@@ -54,20 +54,12 @@ export class RegisterPage {
       }
     }
   }
-  /*register(){
-    if(this.username.length==0 || this.password.length==0 || this.repassword.length==0){
-      let alert = this.alertCtrl.create({
-        title: 'ERRO',
-        subTitle: 'Preencha todos os campos corretamente!',
-        buttons: ['OK']
-      });
-      alert.present();
-    }else{
-      this.navCtrl.pop();
-    }
-  }*/
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
+  }
+
+  goToLoginPage() {
+    this.navCtrl.push(LoginPage);
   }
 }
