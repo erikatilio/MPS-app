@@ -16,4 +16,8 @@ export class FirebaseServiceProvider {
     console.log('Hello FirebaseServiceProvider Provider');
   }
 
+//função que guarda no banco de dados a receita
+  save(receita: any) {
+  	this.db.list('receitas').push(receita).then(r => console.log(r));
+  }
 }
