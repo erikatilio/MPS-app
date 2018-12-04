@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { AngularFireModule } from 'angularfire2';
+import { firebase } from '../../../node_modules/firebase/firebase';
 
 @IonicPage()
 @Component({
@@ -23,6 +24,7 @@ export class ReceitaPage {
     this.like = false;
     this.deslike = false;
   }
+
 //funções de avaliação positiva
   curtir(){
     if(this.avaliado == false){
