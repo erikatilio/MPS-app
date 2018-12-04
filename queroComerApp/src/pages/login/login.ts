@@ -7,7 +7,7 @@ import { AlertController } from 'ionic-angular';
 //importação do modelo de usuario
 import { User } from '../../model/user';
 //autenticação
-import { AuthProvider } from '../../provider/auth/auth';
+import { AuthProvider } from '../../providers/auth/auth';
 
 
 @IonicPage()
@@ -53,27 +53,18 @@ export class LoginPage {
     }
   }
 
-
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
     this.auth.logout();
   }
 
-  /*login(){
-    if(this.username.length==0 || this.password.length==0){
-      let alert = this.alertCtrl.create({
-        title: 'ERRO',
-        subTitle: 'Sua senha ou nome de usuário podem estar erradas',
-        buttons: ['OK']
-      });
-      alert.present();
-    }else{
-      this.navCtrl.setRoot(HomePage);
-    }
-  }*/
-
   goToRegisterPage() {
     this.navCtrl.push(RegisterPage);
   }
 }
+/*FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+if (user != null) {
+    // Usuário está logado
+} else {
+    // usuário não está logado
+}*/
