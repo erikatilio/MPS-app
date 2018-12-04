@@ -22,16 +22,10 @@ export class CadastroPage {
   	this.receitas = "";
   }
 
+//função para cadastrar receita
   cadastrar(receita:Receita) {
   	try {
-  		this.receitas = firebase.database().ref("receitas");
-  		this.receitas.push().set(
-  			{
-  				nome: this.receita.nome,
-	  			ingredientes: this.receita.ingredientes,
-	  			modoPreparo: this.receita.modoPreparo
-	  		}
-  		);
+      this.dbService.save(receita);  //chama a função
   		alert("Receita cadastrada");
     } catch (e) {
         alert("Não foi possível cadastrar a receita, tente mais tarde");
@@ -43,5 +37,4 @@ export class CadastroPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastroPage');
   }
-
 }
