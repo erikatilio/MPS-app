@@ -16,19 +16,19 @@ export class HomePage {
   constructor(public navCtrl: NavController) {
     this.listaReceitas = [
       {
-        "nome": "Sorvete 1",
+        "nome": "Sorvete",
         "descricao": " Sorvete ou gelado é uma sobremesa gelada à base de lacticínios.",
         "imagem": "https://www.bonde.com.br/img/galeriasocial/img_gal2_18355.jpg"
       },
       {
-        "nome": "Sorvete 2",
-        "descricao": " Sorvete ou gelado é uma sobremesa gelada à base de lacticínios.",
-        "imagem": "http://g.glbimg.com/og/gs/gsat5/f/thumbs/tag/2015/08/27/sorvete-620.jpg"
+        "nome": "X-Tudo",
+        "descricao": " Sanduíche de carne temperada dentro do pão, como cebola, alface, tomate, maionese, ketchup, queijo e bacon e ovos.",
+        "imagem": "https://media-cdn.tripadvisor.com/media/photo-s/0b/ed/c8/10/x-tudo.jpg"
       },
       {
-        "nome": "Sorvete 3",
-        "descricao": " Sorvete ou gelado é uma sobremesa gelada à base de lacticínios.",
-        "imagem": "https://www.comidaereceitas.com.br/images/stories/2012/11/sorvete_cremoso_baunilha.jpg"
+        "nome": "Feijoada",
+        "descricao": " Um guisado de feijão com carne bovina e carne de porco, servido com arroz.",
+        "imagem": "http://esbrasil.com.br/wp-content/uploads/2018/04/Feijoada-696x443.jpg"
       }
     ]
   }
@@ -45,8 +45,9 @@ export class HomePage {
     this.navCtrl.setRoot(LoginPage);
   }
   //função que carrega a pagina receitas
-  goToReceitaPage() {
-    this.navCtrl.push(ReceitaPage);
+  goToReceitaPage(receita) {
+    console.log(receita);
+    this.navCtrl.push(ReceitaPage, { tituloDaReceita: receita.nome, descricaoDaReceita: receita.descricao, imagemDaReceita: receita.imagem });
   }
   //função que carrega a pagina cadastro
   goToCadastroReceitaPage() {

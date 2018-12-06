@@ -12,12 +12,12 @@
     <ion-item-sliding *ngFor="let receita of listaReceitas">
       <ion-item>
         <ion-card>
-          <img src="{{receita.imagem}}" (click)="goToReceitaPage()" />
+          <img src="{{receita.imagem}}" (click)="goToReceitaPage(receita)" />
           <ion-card-content>
-            <ion-card-title (click)="goToReceitaPage()">
+            <ion-card-title (click)="goToReceitaPage(receita)">
               {{receita.nome}}
             </ion-card-title>
-            <div (click)="goToReceitaPage()">
+            <div (click)="goToReceitaPage(receita)">
               {{receita.descricao}}
             </div>
           </ion-card-content>

@@ -1,20 +1,18 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{titulo}}</ion-title>
+    <ion-title>{{tituloDaReceita}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
   <ion-card>
-    <img src="https://www.bonde.com.br/img/galeriasocial/img_gal2_18355.jpg">
+    <img src="{{imagemDaReceita}}">
     <ion-card-content>
       <div>
-        <h2>Ingredientes:</h2>
-        <p>Água e pão</p>
-        <h2>Modo de preparo:</h2>
-        <p>coloca tudo na panela</p>
+        <h2>Descrição</h2>
+        <p>{{descricaoDaReceita}}</p>
       </div>
     </ion-card-content>
     <ion-item>
