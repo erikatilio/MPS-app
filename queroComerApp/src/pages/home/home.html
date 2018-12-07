@@ -3,28 +3,26 @@
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Receitas</ion-title>
+    <ion-searchbar placeholder="Buscar" (ionInput)="filtrarReceita($event)"></ion-searchbar>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item-sliding *ngFor="let receita of listaReceitas">
-      <ion-item>
-        <ion-card>
-          <img src="{{receita.imagem}}" (click)="goToReceitaPage(receita)" />
-          <ion-card-content>
-            <ion-card-title (click)="goToReceitaPage(receita)">
-              {{receita.nome}}
-            </ion-card-title>
-            <div (click)="goToReceitaPage(receita)">
-              {{receita.descricao}}
-            </div>
-          </ion-card-content>
-        </ion-card>
-      </ion-item>
-    </ion-item-sliding>
-  </ion-list>
+  <ion-item-sliding *ngFor="let receita of listaReceitas">
+    <ion-item>
+      <ion-card>
+        <img src="{{receita.imagem}}" (click)="goToReceitaPage(receita)" />
+        <ion-card-content>
+          <ion-card-title (click)="goToReceitaPage(receita)">
+            {{receita.nome}}
+          </ion-card-title>
+          <div (click)="goToReceitaPage(receita)">
+            {{receita.descricao}}
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-item-sliding>
 </ion-content>
 
 <ion-menu [content]="content">
