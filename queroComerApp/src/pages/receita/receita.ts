@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireModule } from 'angularfire2';
 import { firebase } from '../../../node_modules/firebase/firebase';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { ActionSheetController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -18,7 +20,12 @@ export class ReceitaPage {
   public like: boolean;          //verifica se já foi curtido
   public deslike: boolean;       //verifica se já foi descurtido
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private socialSharing: SocialSharing,
+    public actionSheetCtrl: ActionSheetController
+  ) {
+
     //recebe os parametros que chegam a essa page da HomePage
     this.tituloDaReceita = this.navParams.get("tituloDaReceita");     //nome da receita da HomePage
     this.descricaoDaReceita = this.navParams.get("descricaoDaReceita");     //descricao da receita da HomePage
@@ -67,6 +74,47 @@ export class ReceitaPage {
       this.deslike = true;
       this.like = false;
     }
+  }
+
+  //função de compartilhar
+  compartilhar(tituloDaReceita,imagemDaReceita,descricaoDaReceita) {
+    const share = this.actionSheetCtrl.create({
+      title: 'COMPARTILHAR RECEITA',
+      buttons: [
+        {
+          text: 'Compartilhar com Facebook',
+          icon: 'logo-facebook',
+          handler: () => {
+            this.socialSharing.shareViaFacebook(tituloDaReceita,imagemDaReceita,descricaoDaReceita);
+          }
+        }, {
+          text: 'Compartilhar com Whatsapp',
+          icon: 'logo-whatsapp',
+          handler: () => {
+            this.socialSharing.shareViaWhatsApp(tituloDaReceita,imagemDaReceita,descricaoDaReceita);
+          }
+        }, {
+          text: 'Compartilhar com Instagram',
+          icon: 'logo-instagram',
+          handler: () => {
+            this.socialSharing.shareViaInstagram(descricaoDaReceita,imagemDaReceita);
+          }
+        }, {
+          text: 'Compartilhar com Twitter',
+          icon: 'logo-twitter',
+          handler: () => {
+            this.socialSharing.shareViaTwitter(tituloDaReceita,imagemDaReceita,descricaoDaReceita);
+          }
+        }, {
+          text: 'CANCELAR',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    share.present();
   }
 
   ionViewDidLoad() {

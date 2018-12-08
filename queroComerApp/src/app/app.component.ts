@@ -9,7 +9,7 @@ import { SlidesPage } from '../pages/slides/slides';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = SlidesPage;
+  rootPage:any = HomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

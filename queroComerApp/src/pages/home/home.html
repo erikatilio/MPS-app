@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingIcon="refresh-circle" Spinner="lines" refreshingText="Recarregando..."></ion-refresher-content>
+    <ion-refresher-content pullingIcon=none Spinner="lines"></ion-refresher-content>
   </ion-refresher>
   <ion-item-sliding *ngFor="let receita of listaReceitas">
     <ion-item>
