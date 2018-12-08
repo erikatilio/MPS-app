@@ -14,6 +14,8 @@ export class ReceitaPage {
   public tituloDaReceita;
   public descricaoDaReceita;
   public imagemDaReceita;
+  public modoDePreparoReceita;
+  public ingredientesDaReceita;
   public curtida: number;
   public descurtida: number;
   public avaliado: boolean;       //verifica se já foi avalidado
@@ -30,6 +32,8 @@ export class ReceitaPage {
     this.tituloDaReceita = this.navParams.get("tituloDaReceita");     //nome da receita da HomePage
     this.descricaoDaReceita = this.navParams.get("descricaoDaReceita");     //descricao da receita da HomePage
     this.imagemDaReceita = this.navParams.get("imagemDaReceita");     //imagem da receita da HomePage
+    this.modoDePreparoReceita = this.navParams.get("modoDePreparoReceita");   //modo de preparo da receita da HomePage
+    this.ingredientesDaReceita = this.navParams.get("ingredientesDaReceita");   //ingredientes da receita da HomePage
 
     this.curtida = 0;
     this.descurtida = 0;
@@ -120,5 +124,4 @@ export class ReceitaPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ReceitaPage');
   }
-
 }
