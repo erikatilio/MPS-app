@@ -13,8 +13,8 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  listaReceitas: Observable<any>;
-  
+  listaReceitas: Observable<any>;//variavel que armazena a lista de receitas que viram do abnco de dados
+
   constructor(
     public navCtrl: NavController,
     public dbService: FirebaseServiceProvider
@@ -43,7 +43,13 @@ export class HomePage {
   //função que carrega a pagina receitas
   goToReceitaPage(receita) {
     console.log(receita);
-    this.navCtrl.push(ReceitaPage, { tituloDaReceita: receita.nome, descricaoDaReceita: receita.descricao, imagemDaReceita: receita.imagem });
+    this.navCtrl.push(ReceitaPage, {
+      tituloDaReceita: receita.nome,
+      descricaoDaReceita: receita.descricao,
+      imagemDaReceita: receita.imagem,
+      modoDePreparoReceita: receita.modoPreparo,
+      ingredientesDaReceita: receita.ingredientes
+    });
   }
   //função que carrega a pagina cadastro
   goToCadastroReceitaPage() {
@@ -76,7 +82,7 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    this.listaReceitas = this.dbService.getReceitas();
+    this.listaReceitas = this.dbService.getReceitas();//pega as receitas do banco de dados
     console.log('ionViewDidLoad HomePage');
   }
 

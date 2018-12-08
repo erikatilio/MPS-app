@@ -1,6 +1,6 @@
 export interface Receita {
-	descricao:string;
-	imagem:string;
+	descricao:any;
+	imagem:any;
 	nome:string;
 	ingredientes:string;
 	modoPreparo:string;
