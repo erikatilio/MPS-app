@@ -5,37 +5,27 @@ import { SobrePage } from '../sobre/sobre';
 import { LoginPage } from '../login/login';
 import { ReceitaPage } from '../receita/receita';
 import { CadastroPage } from '../cadastro/cadastro';
+import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public listaReceitas: any;//array com a lista de receitas
-
-  constructor(public navCtrl: NavController) {
+  listaReceitas: Observable<any>;
+  
+  constructor(
+    public navCtrl: NavController,
+    public dbService: FirebaseServiceProvider
+  ) {
+    this.listaReceitas = this.dbService.getReceitas();
     this.gerarListaReceitas();//chama a lista de receitas no construtor para que seja atualizada na home
   }
 
   //fução que gera a lista de receitas
   gerarListaReceitas() {
-    this.listaReceitas = [
-      {
-        nome: "Sorvete",
-        descricao: " Sorvete ou gelado é uma sobremesa gelada à base de lacticínios.",
-        imagem: "https://www.bonde.com.br/img/galeriasocial/img_gal2_18355.jpg"
-      },
-      {
-        nome: "X-Tudo",
-        descricao: " Sanduíche de carne temperada dentro do pão, como cebola, alface, tomate, maionese, ketchup, queijo, bacon e ovos.",
-        imagem: "https://media-cdn.tripadvisor.com/media/photo-s/0b/ed/c8/10/x-tudo.jpg"
-      },
-      {
-        nome: "Feijoada",
-        descricao: " Um guisado de feijão com carne bovina e carne de porco, servido com arroz.",
-        imagem: "http://esbrasil.com.br/wp-content/uploads/2018/04/Feijoada-696x443.jpg"
-      }
-    ];
+    this.ionViewDidLoad();
   }
 
   //função que carrega a pagina favoritos
@@ -86,7 +76,8 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
+    this.listaReceitas = this.dbService.getReceitas();
     console.log('ionViewDidLoad HomePage');
   }
-  
+
 }

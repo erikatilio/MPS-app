@@ -11,7 +11,7 @@
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon=none Spinner="lines"></ion-refresher-content>
   </ion-refresher>
-  <ion-item-sliding *ngFor="let receita of listaReceitas">
+  <ion-item-sliding *ngFor="let receita of listaReceitas | async">
     <ion-item>
       <ion-card>
         <img src="{{receita.imagem}}" (click)="goToReceitaPage(receita)" />
