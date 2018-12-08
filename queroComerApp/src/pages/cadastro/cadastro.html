@@ -16,15 +16,23 @@
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Descrição Ingredientes</ion-label>
-      <ion-input type="text" [(ngModel)]="receita.ingredientes"></ion-input>
-      <ion-textarea placeholder="" rows="10"></ion-textarea>
+      <ion-label floating>Breve Descrição</ion-label>
+      <ion-input type="text" [(ngModel)]="receita.descricao"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Ingradientes</ion-label>
+      <ion-textarea placeholder="Ingredientes" type="text" [(ngModel)]="receita.ingredientes"></ion-textarea>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Modo de Preparo</ion-label>
-      <ion-input type="text" [(ngModel)]="receita.modoPreparo"></ion-input>
-      <ion-textarea placeholder="" rows="10"></ion-textarea>
+      <ion-textarea placeholder="Mode de Preparo" type="text" [(ngModel)]="receita.modoPreparo"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Link da imagem</ion-label>
+      <ion-input type="text" [(ngModel)]="receita.imagem"></ion-input>
     </ion-item>
   </ion-list>
 
