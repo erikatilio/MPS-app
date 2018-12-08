@@ -86,3 +86,22 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+//variaveis de formatação da Barra de pesquisa
+
+$searchbar-md-input-search-icon-color: rgb(255, 255, 255);
+$searchbar-md-input-placeholder-color: rgb(214, 214, 214);
+$searchbar-md-input-text-color: rgb(214, 214, 214);
+$searchbar-md-input-clear-icon-color: rgb(255, 255, 255);
+$searchbar-md-input-clear-icon-size: 25px;
+
+//variaveis de formatação de botões
+
+$button-md-background-color: #00a7ad;
+$button-md-text-color: rgb(255, 255, 255);
+
+//variaveis de formatação do refrash
+
+$refresher-icon-color: #00a7ad;
+$refresher-text-color: #00a7ad;
+$refresher-border-color: transparent;

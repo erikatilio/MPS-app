@@ -27,7 +27,7 @@ export class HomePage {
       },
       {
         nome: "X-Tudo",
-        descricao: " Sanduíche de carne temperada dentro do pão, como cebola, alface, tomate, maionese, ketchup, queijo e bacon e ovos.",
+        descricao: " Sanduíche de carne temperada dentro do pão, como cebola, alface, tomate, maionese, ketchup, queijo, bacon e ovos.",
         imagem: "https://media-cdn.tripadvisor.com/media/photo-s/0b/ed/c8/10/x-tudo.jpg"
       },
       {
@@ -72,6 +72,17 @@ export class HomePage {
       })
     }
 
+  }
+
+  //Função que recarrega a pagina
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.gerarListaReceitas();//atualiza a lista de receitas
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
   }
 
   ionViewDidLoad() {

@@ -1,24 +1,25 @@
 <ion-header>
-  <ion-navbar>
+  <ion-toolbar>
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-searchbar placeholder="Buscar" (ionInput)="filtrarReceita($event)"></ion-searchbar>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="refresh-circle" Spinner="lines" refreshingText="Recarregando..."></ion-refresher-content>
+  </ion-refresher>
   <ion-item-sliding *ngFor="let receita of listaReceitas">
     <ion-item>
       <ion-card>
         <img src="{{receita.imagem}}" (click)="goToReceitaPage(receita)" />
+        <ion-card-header>
+          <ion-card-title (click)="goToReceitaPage(receita)"><b>{{receita.nome}}</b></ion-card-title>
+        </ion-card-header>
         <ion-card-content>
-          <ion-card-title (click)="goToReceitaPage(receita)">
-            {{receita.nome}}
-          </ion-card-title>
-          <div (click)="goToReceitaPage(receita)">
-            {{receita.descricao}}
-          </div>
+          <div (click)="goToReceitaPage(receita)">{{receita.descricao}}</div>
         </ion-card-content>
       </ion-card>
     </ion-item>
@@ -34,15 +35,19 @@
   <ion-content>
     <ion-list>
       <button ion-item (click)="goToFavoritosPage()">
+        <ion-icon ios="ios-star" md="md-star"></ion-icon>
         Favoritos
       </button>
       <button ion-item (click)="goToCadastroReceitaPage()">
+        <ion-icon ios="ios-restaurant" md="md-restaurant"></ion-icon>
         Cadastrar Receita
       </button>
       <button ion-item (click)="goToSobrePage()">
+        <ion-icon name="information-circle"></ion-icon>
         Sobre
       </button>
       <button ion-item (click)="goToLoginPage()">
+        <ion-icon name="exit"></ion-icon>
         Sair
       </button>
     </ion-list>

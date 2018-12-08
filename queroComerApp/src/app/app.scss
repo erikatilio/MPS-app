@@ -1,0 +1,21 @@
+//Formatação da barra de pesquisa e demais cabeçalhos
+
+.toolbar-background-md {
+    background: linear-gradient(to bottom right, #004547, #00a7ad);
+}
+
+.bar-button-default-md {
+    color: #fff;
+}
+
+.searchbar-md .searchbar-input {
+    background: linear-gradient(#004547, #00a7ad);
+}
+
+.toolbar-title-md {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #fff;
+}
+
