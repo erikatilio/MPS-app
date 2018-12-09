@@ -44,13 +44,13 @@ export class HomePage {
   goToReceitaPage(receita) {
     console.log(receita);
     this.navCtrl.push(ReceitaPage, {
-      tituloDaReceita: receita.nome,
-      descricaoDaReceita: receita.descricao,
-      imagemDaReceita: receita.imagem,
-      modoDePreparoReceita: receita.modoPreparo,
-      ingredientesDaReceita: receita.ingredientes,
-      curtidasDaReceita: receita.curtidas,
-      descurtidasDaReceita: receita.descurtidas
+      nome: receita.nome,
+      descricao: receita.descricao,
+      imagem: receita.imagem,
+      modoPreparo: receita.modoPreparo,
+      ingredientes: receita.ingredientes,
+      curtidas: receita.curtidas,
+      descurtidas: receita.descurtidas
     });
   }
   //função que carrega a pagina cadastro
@@ -69,7 +69,6 @@ export class HomePage {
         return (item.nome.toLowerCase().indexOf(searchTerm.toLowerCase()) > - 1);
       })
     }
-
   }
 
   //Função que recarrega a pagina
