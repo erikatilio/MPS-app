@@ -25,7 +25,7 @@ export class LoginPage {
   }
 
   // Método para exibir as nossas mensagens de erro.
-  public menssagem(title, message) {
+  public mensagem(title, message) {
     let al = this.alertCtrl.create({
       title: title,
       subTitle: message,
@@ -38,7 +38,7 @@ export class LoginPage {
   async login(user: User) {
     // Valida se foi informado email e password
     if (user.email == "" || user.password == "") {
-      this.menssagem('Erro', 'É necessário informar o email e senha');
+      this.mensagem('Erro', 'É necessário informar o email e senha');
     } else {
       try {
         // Chama o método para fazer login
@@ -48,7 +48,7 @@ export class LoginPage {
           this.navCtrl.setRoot(HomePage);
         }
       } catch (e) {
-        this.menssagem('Erro ao logar', 'Preencha os campos de E-mail e Senha corretamente');
+        this.mensagem('Erro ao logar', 'Preencha os campos de E-mail e Senha corretamente');
       }
     }
   }
