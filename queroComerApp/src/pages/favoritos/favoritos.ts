@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Receita } from '../../model/receita';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { ActionSheetController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 
 @IonicPage()
@@ -19,6 +20,7 @@ export class FavoritosPage {
     public navParams: NavParams,
     private socialSharing: SocialSharing,
     public actionSheetCtrl: ActionSheetController,
+    private alertCtrl: AlertController
   ) {
 
     this.receitasFavoritas = [
@@ -27,15 +29,24 @@ export class FavoritosPage {
 
   }
 
+  mensagem(title, message) {
+    let al = this.alertCtrl.create({
+      title: title,
+      subTitle: message,
+      buttons: ['OK']
+    });
+    al.present();
+  }
+
   opcoesFavoritos(tituloDaReceita, imagemDaReceita, descricaoDaReceita) {
     const share = this.actionSheetCtrl.create({
       title: 'OPÇÕES',
       buttons: [
         {
-          text: 'Excluir de Favoritos',
+          text: 'Remover de Favoritos',
           icon: 'trash',
           handler: () => {
-            console.log('Favorito excluido');
+            this.mensagem('Remoção','Receita foi removida da sua lista de favoritos com sucesso');
           }
         }, {
           text: 'Compartilhar com Facebook',
