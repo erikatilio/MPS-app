@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 
@@ -15,6 +14,12 @@ export class FirebaseServiceProvider {
   	this.db.list('receitas').push(receita).then(r => console.log(r));
   }
 
+// função para atualizar informações da receita
+  upgrade(receita: any) {
+    this.db.list('receitas').update(receita.key, receita).then(r => console.log(r));
+  }
+
+// acho que são pra acessar as receitas no BD
   getReceitas(){
     return this.db.list(this.PATH)
     .snapshotChanges()
@@ -34,5 +39,4 @@ export class FirebaseServiceProvider {
   remove(key: string){
     return this.db.list(this.PATH).remove(key);
   }
-
 }
