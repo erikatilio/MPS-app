@@ -12,8 +12,7 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'favoritos.html',
 })
 export class FavoritosPage {
-  public receita = {} as Receita;
-  public receitasFavoritas: Array<Receita> = [];
+  public receitasFavoritas: Array<Receita> = [];    //array com receitas favoritas
 
   constructor(
     public navCtrl: NavController,
@@ -23,12 +22,19 @@ export class FavoritosPage {
     private alertCtrl: AlertController
   ) {
 
+    //recebe a receita quando adicionada
     this.receitasFavoritas = [
       this.navParams.get("receitaFavorito")
     ];
 
   }
 
+  //função que exclui receita da lista de favoritos
+  excluirDeFavoritos(receita){
+
+  }
+
+  //função que exibe mensagem
   mensagem(title, message) {
     let al = this.alertCtrl.create({
       title: title,
@@ -38,7 +44,8 @@ export class FavoritosPage {
     al.present();
   }
 
-  opcoesFavoritos(tituloDaReceita, imagemDaReceita, descricaoDaReceita) {
+  //função que contem as opções de receita favorita
+  opcoesFavoritos(receita) {
     const share = this.actionSheetCtrl.create({
       title: 'OPÇÕES',
       buttons: [
@@ -46,31 +53,32 @@ export class FavoritosPage {
           text: 'Remover de Favoritos',
           icon: 'trash',
           handler: () => {
+            this.excluirDeFavoritos(receita);
             this.mensagem('Remoção', 'Receita foi removida da sua lista de favoritos com sucesso');
           }
         }, {
           text: 'Compartilhar com Facebook',
           icon: 'logo-facebook',
           handler: () => {
-            this.socialSharing.shareViaFacebook(tituloDaReceita, imagemDaReceita, descricaoDaReceita);
+            this.socialSharing.shareViaFacebook(receita.nome, receita.imagem, receita.descricao);
           }
         }, {
           text: 'Compartilhar com Whatsapp',
           icon: 'logo-whatsapp',
           handler: () => {
-            this.socialSharing.shareViaWhatsApp(tituloDaReceita, imagemDaReceita, descricaoDaReceita);
+            this.socialSharing.shareViaWhatsApp(receita.nome, receita.imagem, receita.descricao);
           }
         }, {
           text: 'Compartilhar com Instagram',
           icon: 'logo-instagram',
           handler: () => {
-            this.socialSharing.shareViaInstagram(descricaoDaReceita, imagemDaReceita);
+            this.socialSharing.shareViaInstagram(receita.descricao, receita.imagem);
           }
         }, {
           text: 'Compartilhar com Twitter',
           icon: 'logo-twitter',
           handler: () => {
-            this.socialSharing.shareViaTwitter(tituloDaReceita, imagemDaReceita, descricaoDaReceita);
+            this.socialSharing.shareViaTwitter(receita.nome, receita.imagem, receita.descricao);
           }
         }, {
           text: 'CANCELAR',

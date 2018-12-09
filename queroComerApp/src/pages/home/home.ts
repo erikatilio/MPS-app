@@ -53,30 +53,34 @@ export class HomePage {
 
   //Função que filtar receitas pegando por parametro o input do serachbar
   filtrarReceita(event: any) {
+
     this.gerarListaReceitas();//atualiza a lista de receitas
     let searchTerm = event.target.value;
 
     //filtra oque foi digitado no seacrh bar na listaDeReceitas
     if (searchTerm && searchTerm.trim() != '') {
-      this.listaReceitas = this.listaReceitas.filter((item) => {
-        return (item.nome.toLowerCase().indexOf(searchTerm.toLowerCase()) > - 1);
-      })
+      this.listaReceitas = this.listaReceitas
+        .map(listaReceitas => listaReceitas.filter((v) => {
+          if (v.nome && searchTerm) {
+            return v.nome.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+          }
+        }));
     }
   }
 
   //Função que recarrega a pagina
   doRefresh(refresher) {
-    console.log('Begin async operation', refresher);
+    console.log('Recarregando HomePage', refresher);
     this.gerarListaReceitas();//atualiza a lista de receitas
 
     setTimeout(() => {
-      console.log('Async operation has ended');
+      console.log('HomePage Re-carregada');
       refresher.complete();
     }, 2000);
   }
 
   ionViewDidLoad() {
     this.listaReceitas = this.dbService.getReceitas();//pega as receitas do banco de dados
-    console.log('ionViewDidLoad HomePage');
+    console.log('ionViewDidLoad HomePage', ' Banco de Dados Carregado');
   }
 }
