@@ -4,6 +4,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import { ActionSheetController } from 'ionic-angular';
 import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
 import { Receita } from '../../model/receita';
+import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
@@ -11,15 +12,7 @@ import { Receita } from '../../model/receita';
   templateUrl: 'receita.html',
 })
 export class ReceitaPage {
-  public receita = {
-    'curtidas': 0,
-    'descurtidas': 0,
-    'descricao': '',
-    'imagem': '',
-    'nome': '',
-    'ingredientes': '',
-    'modoPreparo': ''
-  } as Receita;
+  public receita = {} as Receita;
 
   private avaliado: boolean;       //verifica se já foi avalidado
   private like: boolean;          //verifica se já foi curtido
@@ -29,17 +22,11 @@ export class ReceitaPage {
     public navParams: NavParams,
     private socialSharing: SocialSharing,
     public actionSheetCtrl: ActionSheetController,
-    public fb: FirebaseServiceProvider
+    public fb: FirebaseServiceProvider,    //acessa as funcionalidades do firebase provider
+    private fun: LoginPage    //acessa as funções da loginPage
   ) {
 
-    //recebe os parametros que chegam a essa page da HomePage
-    this.receita.nome = this.navParams.get("nome");     //nome da receita da HomePage
-    this.receita.descricao = this.navParams.get("descricao");     //descricao da receita da HomePage
-    this.receita.imagem = this.navParams.get("imagem");     //imagem da receita da HomePage
-    this.receita.modoPreparo = this.navParams.get("modoPreparo");   //modo de preparo da receita da HomePage
-    this.receita.ingredientes = this.navParams.get("ingredientes");   //ingredientes da receita da HomePage
-    this.receita.curtidas = this.navParams.get("curtidas");   //curtidas da receita da HomePage
-    this.receita.descurtidas = this.navParams.get("descurtidas");    //descurtidas da receita da HomePage
+    this.receita = this.navParams.get('receita'); //recebe as informações vindas da homePage
 
     //verificadores unico
     this.avaliado = false;
@@ -48,12 +35,16 @@ export class ReceitaPage {
   }
 
   // função para atualizar avaliação
-  updateValue(receita: Receita) {
-    this.fb.upgrade(receita);
+  updateValue(receita) {
+    try {
+      this.fb.upgrade(receita);
+    } catch (e) {
+      this.fun.mensagem("Me perdoe consagrado", "Tente novamente mais tarde");
+    }
   }
 
   //funções de avaliação positiva
-  curtir(receita: Receita) {
+  curtir(receita) {
     if (this.avaliado == false) {
       this.receita.curtidas++;
       this.avaliado = true;
@@ -75,7 +66,7 @@ export class ReceitaPage {
   }
 
   //funções de avaliação negativa
-  descurtir(receita: Receita) {
+  descurtir(receita) {
     if (this.avaliado == false) {
       this.receita.descurtidas++;
       this.avaliado = true;
