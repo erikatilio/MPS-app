@@ -1,6 +1,6 @@
 export interface Receita {
-	curtidas:0;
-	descurtidas:0;
+	curtidas:number;
+	descurtidas:number;
 	descricao:any;
 	imagem:any;
 	nome:string;
