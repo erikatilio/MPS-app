@@ -46,7 +46,7 @@ export class FavoritosPage {
           text: 'Remover de Favoritos',
           icon: 'trash',
           handler: () => {
-            this.mensagem('Remoção','Receita foi removida da sua lista de favoritos com sucesso');
+            this.mensagem('Remoção', 'Receita foi removida da sua lista de favoritos com sucesso');
           }
         }, {
           text: 'Compartilhar com Facebook',

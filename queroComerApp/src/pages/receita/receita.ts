@@ -91,7 +91,7 @@ export class ReceitaPage {
           text: 'Adicionar a favoritos',
           icon: 'heart',
           handler: () => {
-            this.navCtrl.push(FavoritosPage,{'receitaFavorito':this.receita});//envia receita para favoritos
+            this.navCtrl.push(FavoritosPage, { 'receitaFavorito': this.receita });//envia receita para favoritos
           }
         }, {
           text: 'Compartilhar com Facebook',
