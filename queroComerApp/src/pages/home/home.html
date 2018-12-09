@@ -16,7 +16,15 @@
       <ion-card>
         <img src="{{receita.imagem}}" (click)="goToReceitaPage(receita)" />
         <ion-card-header>
-          <ion-card-title (click)="goToReceitaPage(receita)"><b>{{receita.nome}}</b></ion-card-title>
+          <ion-card-title (click)="goToReceitaPage(receita)">
+            <b>{{receita.nome}}</b>
+          </ion-card-title>
+          <ion-badge color="dark">
+            <ion-icon icon-only name="thumbs-up">{{receita.curtidas}}</ion-icon>
+          </ion-badge>
+          <ion-badge color="dark">
+            <ion-icon icon-only name="thumbs-down">{{receita.descurtidas}}</ion-icon>
+          </ion-badge>
         </ion-card-header>
         <ion-card-content>
           <div (click)="goToReceitaPage(receita)">{{receita.descricao}}</div>
@@ -24,6 +32,11 @@
       </ion-card>
     </ion-item>
   </ion-item-sliding>
+  <ion-fab right bottom>
+    <button color="secondary" ion-fab small (click)="goToCadastroReceitaPage()">
+      <ion-icon ios="ios-restaurant" md="md-restaurant"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>
 
 <ion-menu [content]="content">

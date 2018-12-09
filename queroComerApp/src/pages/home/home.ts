@@ -48,7 +48,9 @@ export class HomePage {
       descricaoDaReceita: receita.descricao,
       imagemDaReceita: receita.imagem,
       modoDePreparoReceita: receita.modoPreparo,
-      ingredientesDaReceita: receita.ingredientes
+      ingredientesDaReceita: receita.ingredientes,
+      curtidasDaReceita: receita.curtidas,
+      descurtidasDaReceita: receita.descurtidas
     });
   }
   //função que carrega a pagina cadastro
@@ -85,5 +87,4 @@ export class HomePage {
     this.listaReceitas = this.dbService.getReceitas();//pega as receitas do banco de dados
     console.log('ionViewDidLoad HomePage');
   }
-
 }
