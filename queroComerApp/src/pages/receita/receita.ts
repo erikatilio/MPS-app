@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AngularFireModule } from 'angularfire2';
-import { firebase } from '../../../node_modules/firebase/firebase';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { ActionSheetController } from 'ionic-angular';
+import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
+import { Receita } from '../../model/receita';
 
 @IonicPage()
 @Component({
@@ -11,31 +11,35 @@ import { ActionSheetController } from 'ionic-angular';
   templateUrl: 'receita.html',
 })
 export class ReceitaPage {
-  public tituloDaReceita;
-  public descricaoDaReceita;
-  public imagemDaReceita;
-  public modoDePreparoReceita;
-  public ingredientesDaReceita;
-  public curtida: number;
-  public descurtida: number;
-  public avaliado: boolean;       //verifica se já foi avalidado
-  public like: boolean;          //verifica se já foi curtido
-  public deslike: boolean;       //verifica se já foi descurtido
+  public receita = {
+    'curtidas': 0,
+    'descurtidas': 0,
+    'descricao': '',
+    'imagem': '',
+    'nome': '',
+    'ingredientes': '',
+    'modoPreparo': ''
+  } as Receita;
+
+  private avaliado: boolean;       //verifica se já foi avalidado
+  private like: boolean;          //verifica se já foi curtido
+  private deslike: boolean;       //verifica se já foi descurtido
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private socialSharing: SocialSharing,
-    public actionSheetCtrl: ActionSheetController
+    public actionSheetCtrl: ActionSheetController,
+    public fb: FirebaseServiceProvider
   ) {
 
     //recebe os parametros que chegam a essa page da HomePage
-    this.tituloDaReceita = this.navParams.get("tituloDaReceita");     //nome da receita da HomePage
-    this.descricaoDaReceita = this.navParams.get("descricaoDaReceita");     //descricao da receita da HomePage
-    this.imagemDaReceita = this.navParams.get("imagemDaReceita");     //imagem da receita da HomePage
-    this.modoDePreparoReceita = this.navParams.get("modoDePreparoReceita");   //modo de preparo da receita da HomePage
-    this.ingredientesDaReceita = this.navParams.get("ingredientesDaReceita");   //ingredientes da receita da HomePage
-    this.curtida = this.navParams.get("curtidasDaReceita");   //curtidas da receita da HomePage
-    this.descurtida = this.navParams.get("descurtidasDaReceita");    //descurtidas da receita da HomePage
+    this.receita.nome = this.navParams.get("nome");     //nome da receita da HomePage
+    this.receita.descricao = this.navParams.get("descricao");     //descricao da receita da HomePage
+    this.receita.imagem = this.navParams.get("imagem");     //imagem da receita da HomePage
+    this.receita.modoPreparo = this.navParams.get("modoPreparo");   //modo de preparo da receita da HomePage
+    this.receita.ingredientes = this.navParams.get("ingredientes");   //ingredientes da receita da HomePage
+    this.receita.curtidas = this.navParams.get("curtidas");   //curtidas da receita da HomePage
+    this.receita.descurtidas = this.navParams.get("descurtidas");    //descurtidas da receita da HomePage
 
     //verificadores unico
     this.avaliado = false;
@@ -43,41 +47,52 @@ export class ReceitaPage {
     this.deslike = false;
   }
 
+  // função para atualizar avaliação
+  updateValue(receita: Receita) {
+    this.fb.upgrade(receita);
+  }
+
   //funções de avaliação positiva
-  curtir() {
+  curtir(receita: Receita) {
     if (this.avaliado == false) {
-      this.curtida++;
+      this.receita.curtidas++;
       this.avaliado = true;
       this.like = true;
+     this.updateValue(receita);
     } else if (this.avaliado == true && this.like == true) {
-      this.curtida--;
+      this.receita.curtidas--;
       this.avaliado = false;
       this.like = false;
+      this.updateValue(receita);
     }
     else if (this.avaliado == true && this.like == false) {
-      this.curtida++;
-      this.descurtida--;
+      this.receita.curtidas++;
+      this.receita.descurtidas--;
       this.like = true;
       this.deslike = false;
+      this.updateValue(receita);
     }
   }
 
   //funções de avaliação negativa
-  descurtir() {
+  descurtir(receita: Receita) {
     if (this.avaliado == false) {
-      this.descurtida++;
+      this.receita.descurtidas++;
       this.avaliado = true;
       this.deslike = true;
+      this.updateValue(receita);
     } else if (this.avaliado == true && this.deslike == true) {
-      this.descurtida--;
+      this.receita.descurtidas--;
       this.avaliado = false;
       this.deslike = false;
+      this.updateValue(receita);
     }
     else if (this.avaliado == true && this.deslike == false) {
-      this.descurtida++;
-      this.curtida--;
+      this.receita.descurtidas++;
+      this.receita.curtidas--;
       this.deslike = true;
       this.like = false;
+      this.updateValue(receita);
     }
   }
 
