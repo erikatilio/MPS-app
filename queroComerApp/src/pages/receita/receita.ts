@@ -4,7 +4,6 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import { ActionSheetController } from 'ionic-angular';
 import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
 import { Receita } from '../../model/receita';
-import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
@@ -23,7 +22,6 @@ export class ReceitaPage {
     private socialSharing: SocialSharing,
     public actionSheetCtrl: ActionSheetController,
     public fb: FirebaseServiceProvider,    //acessa as funcionalidades do firebase provider
-    private fun: LoginPage    //acessa as funções da loginPage
   ) {
 
     this.receita = this.navParams.get('receita'); //recebe as informações vindas da homePage
@@ -36,11 +34,7 @@ export class ReceitaPage {
 
   // função para atualizar avaliação
   updateValue(receita) {
-    try {
-      this.fb.upgrade(receita);
-    } catch (e) {
-      this.fun.mensagem("Me perdoe consagrado", "Tente novamente mais tarde");
-    }
+    this.fb.upgrade(receita);
   }
 
   //funções de avaliação positiva
