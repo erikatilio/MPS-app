@@ -19,11 +19,14 @@ export class CadastroPage {
   public receitas: any;
   public receita = {} as Receita;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dbService: FirebaseServiceProvider, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public dbService: FirebaseServiceProvider,
+    private alertCtrl: AlertController) {
     this.receitas = "";
   }
 
-  public menssagem(title, message) {
+  public mensagem(title, message) {
     let al = this.alertCtrl.create({
       title: title,
       subTitle: message,
@@ -36,9 +39,9 @@ export class CadastroPage {
   cadastrar(receita: Receita) {
     try {
       this.dbService.save(receita);  //chama a função
-      this.menssagem("Parabéns", "Sua receita foi cadastrada com sucesso.");
+      this.mensagem("Parabéns", "Sua receita foi cadastrada com sucesso.");
     } catch (e) {
-      this.menssagem("Desculpe", "Não foi possivel cadastrar sua receita, tente mais tarde.");
+      this.mensagem("Desculpe", "Não foi possivel cadastrar sua receita, tente mais tarde.");
     }
 
     this.navCtrl.setRoot(HomePage);
