@@ -2,9 +2,9 @@
 
   <ion-navbar>
     <ion-title text-center>
-      {{tituloDaReceita}}
+      {{ receita.nome }}
     </ion-title>
-    <ion-buttons end (click)="compartilhar(tituloDaReceita,imagemDaReceita,descricaoDaReceita)">
+    <ion-buttons end (click)="compartilhar(receita.nome, receita.imagem, receita.descricao)">
       <button ion-button icon-only>
         <ion-icon ios="ios-more" md="md-more"></ion-icon>
       </button>
@@ -15,38 +15,38 @@
 
 <ion-content padding>
   <ion-card>
-    <img src="{{imagemDaReceita}}">
+    <img src="{{ receita.imagem }}">
     <ion-card-content>
       <div>
-        <h2><b>Descrição</b></h2>
+        <h2><b>Descriçãoo</b></h2>
         <br />
-        <p>{{descricaoDaReceita}}</p>
+        <p>{{ receita.descricao }}</p>
         <br />
       </div>
       <div>
         <h2><b>Ingredientes</b></h2>
         <br />
-        <p>{{ingredientesDaReceita}}</p>
+        <p>{{ receita.ingredientes }}</p>
         <br />
       </div>
       <div>
         <h2><b>Modo de Preparo</b></h2>
         <br />
-        <p>{{modoDePreparoReceita}}</p>
+        <p>{{ receita.modoPreparo }}</p>
       </div>
     </ion-card-content>
     <ion-item>
       <ion-row>
         <ion-col width-50 style="text-align: center">
-          <button ion-button (click)="curtir()" round>
+          <button ion-button (click)="curtir(receita)" round>
             <ion-icon name="thumbs-up"></ion-icon>
-            <div>{{curtida}} LIKE</div>
+            <div>{{ receita.curtidas }} LIKE</div>
           </button>
         </ion-col>
         <ion-col width-50 style="text-align: center">
-          <button ion-button (click)="descurtir()" round>
+          <button ion-button (click)="descurtir(receita)" round>
             <ion-icon name="thumbs-down"></ion-icon>
-            <div>{{descurtida}} DESLIKE</div>
+            <div>{{ receita.descurtidas }} DESLIKE</div>
           </button>
         </ion-col>
       </ion-row>
