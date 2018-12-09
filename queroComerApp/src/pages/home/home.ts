@@ -42,15 +42,8 @@ export class HomePage {
   }
   //função que carrega a pagina receitas
   goToReceitaPage(receita) {
-    console.log(receita);
-    this.navCtrl.push(ReceitaPage, {
-      nome: receita.nome,
-      descricao: receita.descricao,
-      imagem: receita.imagem,
-      modoPreparo: receita.modoPreparo,
-      ingredientes: receita.ingredientes,
-      curtidas: receita.curtidas,
-      descurtidas: receita.descurtidas
+    this.navCtrl.push(ReceitaPage, {   //envia as informações para a pageReceitas
+      'receita': receita
     });
   }
   //função que carrega a pagina cadastro
