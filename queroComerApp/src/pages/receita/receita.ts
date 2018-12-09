@@ -34,9 +34,10 @@ export class ReceitaPage {
     this.imagemDaReceita = this.navParams.get("imagemDaReceita");     //imagem da receita da HomePage
     this.modoDePreparoReceita = this.navParams.get("modoDePreparoReceita");   //modo de preparo da receita da HomePage
     this.ingredientesDaReceita = this.navParams.get("ingredientesDaReceita");   //ingredientes da receita da HomePage
+    this.curtida = this.navParams.get("curtidasDaReceita");   //curtidas da receita da HomePage
+    this.descurtida = this.navParams.get("descurtidasDaReceita");    //descurtidas da receita da HomePage
 
-    this.curtida = 0;
-    this.descurtida = 0;
+    //verificadores unico
     this.avaliado = false;
     this.like = false;
     this.deslike = false;
@@ -83,7 +84,7 @@ export class ReceitaPage {
   //função de compartilhar
   compartilhar(tituloDaReceita,imagemDaReceita,descricaoDaReceita) {
     const share = this.actionSheetCtrl.create({
-      title: 'COMPARTILHAR RECEITA',
+      title: 'OPÇÕES',
       buttons: [
         {
           text: 'Compartilhar com Facebook',
