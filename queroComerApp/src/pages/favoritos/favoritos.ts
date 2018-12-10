@@ -23,10 +23,7 @@ export class FavoritosPage {
   ) {
 
     //recebe a receita quando adicionada
-    this.receitasFavoritas = [
-      this.navParams.get("receitaFavorito")
-    ];
-
+    this.receitasFavoritas = [ this.navParams.get("receita") ];
   }
 
   //função que exclui receita da lista de favoritos
