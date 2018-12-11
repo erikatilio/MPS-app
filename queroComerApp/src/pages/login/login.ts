@@ -62,9 +62,3 @@ export class LoginPage {
     this.navCtrl.push(RegisterPage);
   }
 }
-/*FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-if (user != null) {
-    // Usuário está logado
-} else {
-    // usuário não está logado
-}*/
