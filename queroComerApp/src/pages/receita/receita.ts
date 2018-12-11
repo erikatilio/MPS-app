@@ -4,7 +4,6 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import { ActionSheetController } from 'ionic-angular';
 import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
 import { Receita } from '../../model/receita';
-import { FavoritosPage } from '../favoritos/favoritos';
 
 @IonicPage()
 @Component({
@@ -88,12 +87,6 @@ export class ReceitaPage {
       title: 'OPÇÕES',
       buttons: [
         {
-          text: 'Adicionar a favoritos',
-          icon: 'heart',
-          handler: () => {
-            this.navCtrl.push(FavoritosPage, { 'receitaFavorito': this.receita });//envia receita para favoritos
-          }
-        }, {
           text: 'Compartilhar com Facebook',
           icon: 'logo-facebook',
           handler: () => {

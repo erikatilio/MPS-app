@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { FavoritosPage } from '../favoritos/favoritos';
 import { SobrePage } from '../sobre/sobre';
 import { LoginPage } from '../login/login';
 import { ReceitaPage } from '../receita/receita';
@@ -28,10 +27,6 @@ export class HomePage {
     this.ionViewDidLoad();
   }
 
-  //função que carrega a pagina favoritos
-  goToFavoritosPage() {
-    this.navCtrl.push(FavoritosPage);
-  }
   //função que carrega a pagina sobre
   goToSobrePage() {
     this.navCtrl.push(SobrePage);
