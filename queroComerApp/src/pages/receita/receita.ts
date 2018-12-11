@@ -33,13 +33,6 @@ export class ReceitaPage {
     this.deslike = false;
   }
 
-  // função para adicionar aos favoritos
-  addFavorite(receita) {
-    this.navCtrl.push(FavoritosPage, {   //envia as informações para a favoritos
-      'receita': receita
-    });
-  }
-
   // função para atualizar avaliação
   updateValue(receita) {
     this.fb.upgrade(receita);
