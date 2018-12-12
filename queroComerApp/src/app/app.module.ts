@@ -14,7 +14,6 @@ import { HomePage } from '../pages/home/home';
 import { SlidesPageModule } from '../pages/slides/slides.module';
 import { LoginPageModule } from '../pages/login/login.module';
 import { RegisterPageModule } from '../pages/register/register.module';
-import { FavoritosPageModule } from '../pages/favoritos/favoritos.module';
 import { SobrePageModule } from '../pages/sobre/sobre.module';
 import { ReceitaPageModule } from '../pages/receita/receita.module';
 import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
@@ -39,7 +38,6 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     SlidesPageModule,
     LoginPageModule,
     RegisterPageModule,
-    FavoritosPageModule,
     SobrePageModule,
     ReceitaPageModule,
     CadastroPageModule,
