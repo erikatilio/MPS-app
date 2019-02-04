@@ -19,7 +19,7 @@ export class FirebaseServiceProvider {
     this.db.list('receitas').update(receita.key, receita).then(r => console.log(r));
   }
 
-// acho que são pra acessar as receitas no BD
+// função pra acessar as receitas no BD
   getReceitas(){
     return this.db.list(this.PATH)
     .snapshotChanges()
