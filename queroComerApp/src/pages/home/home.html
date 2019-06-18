@@ -13,21 +13,21 @@
   </ion-refresher>
   <ion-item-sliding *ngFor="let receita of listaReceitas | async">
     <ion-item>
-      <ion-card>
-        <img src="{{ receita.imagem }}" (click)="goToReceitaPage(receita)" />
+      <ion-card (click)="goToReceitaPage(receita)">
+        <img src="{{ receita.imagem }}"/>
         <ion-card-header>
-          <ion-card-title (click)="goToReceitaPage(receita)">
-            <b>{{ receita.nome }}</b>
+          <ion-card-title>
+            <div>{{ receita.nome }}</div>
           </ion-card-title>
           <ion-badge color="dark">
-            <ion-icon icon-only name="thumbs-up">{{ receita.curtidas }}</ion-icon>
+            <ion-icon icon-only name="thumbs-up"> {{ receita.curtidas }}</ion-icon>
           </ion-badge>
           <ion-badge color="dark">
-            <ion-icon icon-only name="thumbs-down">{{ receita.descurtidas }}</ion-icon>
+            <ion-icon icon-only name="thumbs-down"> {{ receita.descurtidas }}</ion-icon>
           </ion-badge>
         </ion-card-header>
         <ion-card-content>
-          <div (click)="goToReceitaPage(receita)">{{ receita.descricao }}</div>
+          <div>{{ receita.descricao }}</div>
         </ion-card-content>
       </ion-card>
     </ion-item>
