@@ -3,7 +3,7 @@
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-searchbar placeholder="Buscar" (ionInput)="filtrarReceita($event)"></ion-searchbar>
+    <ion-searchbar placeholder="Buscar Serviço" (ionInput)="filtrarReceita($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -34,7 +34,7 @@
   </ion-item-sliding>
   <ion-fab right bottom>
     <button color="secondary" ion-fab small (click)="goToCadastroReceitaPage()">
-      <ion-icon ios="ios-restaurant" md="md-restaurant"></ion-icon>
+      <ion-icon ios="ios-restaurant" md="md-briefcase"></ion-icon>
     </button>
   </ion-fab>
 </ion-content>
@@ -48,8 +48,8 @@
   <ion-content>
     <ion-list>
       <button ion-item (click)="goToCadastroReceitaPage()">
-        <ion-icon ios="ios-restaurant" md="md-restaurant"></ion-icon>
-        Cadastrar Receita
+        <ion-icon ios="ios-restaurant" md="md-briefcase"></ion-icon>
+        Cadastrar Serviço
       </button>
       <button ion-item (click)="goToSobrePage()">
         <ion-icon name="information-circle"></ion-icon>

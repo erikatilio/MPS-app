@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Cadastrar Receita</ion-title>
+    <ion-title>Cadastrar Serviço</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -11,27 +11,27 @@
   <ion-list>
 
     <ion-item>
-      <ion-label floating>Nome da Receita</ion-label>
+      <ion-label floating>Nome do Serviço</ion-label>
       <ion-input type="text" [(ngModel)]="receita.nome"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Breve Descrição</ion-label>
+      <ion-label floating>Breve Descrição do Tipo de Serviço</ion-label>
       <ion-input type="text" [(ngModel)]="receita.descricao"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Ingradientes</ion-label>
+      <ion-label floating>Descrição do Serviço e Contato</ion-label>
       <ion-textarea type="text" [(ngModel)]="receita.ingredientes"></ion-textarea>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Modo de Preparo</ion-label>
+      <ion-label floating>Peço do Serviço</ion-label>
       <ion-textarea type="text" [(ngModel)]="receita.modoPreparo"></ion-textarea>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Link da imagem</ion-label>
+      <ion-label floating>Imagem</ion-label>
       <ion-input type="text" [(ngModel)]="receita.imagem"></ion-input>
     </ion-item>
   </ion-list>
