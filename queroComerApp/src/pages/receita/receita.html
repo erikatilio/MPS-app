@@ -18,19 +18,19 @@
     <img src="{{ receita.imagem }}">
     <ion-card-content>
       <div>
-        <h2><b>Descrição</b></h2>
+        <h2><b>Descrição do Serviço</b></h2>
         <br />
         <p>{{ receita.descricao }}</p>
         <br />
       </div>
       <div>
-        <h2><b>Ingredientes</b></h2>
+        <h2><b>Tipo de Serviço</b></h2>
         <br />
         <p>{{ receita.ingredientes }}</p>
         <br />
       </div>
       <div>
-        <h2><b>Modo de Preparo</b></h2>
+        <h2><b>Preços do Serviço</b></h2>
         <br />
         <p>{{ receita.modoPreparo }}</p>
       </div>
@@ -40,13 +40,13 @@
         <ion-col width-50 style="text-align: center">
           <button ion-button (click)="curtir(receita)" round>
             <ion-icon name="thumbs-up"></ion-icon>
-            <div>{{ receita.curtidas }} GOSTEI</div>
+            <div>{{ receita.curtidas }} LIKE</div>
           </button>
         </ion-col>
-        <ion-col width-50 style="text-align: center">
+        <ion-col width-50 style="text-align: justify">
           <button ion-button (click)="descurtir(receita)" round>
             <ion-icon name="thumbs-down"></ion-icon>
-            <div>{{ receita.descurtidas }} NÃO GOSTEI</div>
+            <div>{{ receita.descurtidas }} DESLIKE</div>
           </button>
         </ion-col>
       </ion-row>
