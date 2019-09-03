@@ -1,4 +1,4 @@
 # MPS-app
+iService
 
-App que faz pesquisa de receitas de comida a partir de ingredientes informados 
-pelo usuário.
+A partir da ideia da rádio de bairro para divulgação de serviços prestados por membros da comunidade, resolvemos desenvolver uma aplicação que possibilita o pequeno empreendedor prestador de serviços fazer sua divulgação a um preço acessível. E ao cliente pesquisar por serviços que necessita no momento.
